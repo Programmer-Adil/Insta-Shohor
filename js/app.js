@@ -11,14 +11,13 @@ const getReportedPosts = () => {
   return posts.filter((post) => reportedPostsId.includes(post.id));
 };
 
+
 const isLiked = (id) => {
   return likedPostsId?.length && !!likedPostsId.includes(id);
 };
 
-console.log(isLiked());
-
 const addToLiked = (id) => {
-  likedPostsId.plus(id);
+  likedPostsId.push(id);
   showPosts(posts);
 };
 
@@ -29,7 +28,7 @@ const reportPost = (id) => {
 };
 
 const displayContent = (text) => {
-  return text.length < 30 ? 'text' : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
+  return text.length < 30 ? text : text.slice(0, 30) + "<span class='fw-bold'>... read more</span>";
 };
 
 const switchTab = (id) => {
